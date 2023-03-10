@@ -17,7 +17,6 @@ export const UseContextFC = () => {
         updateValue2(updatedValue)
     }
 
-
     return (
         <div>
             <h1>useContext</h1>
@@ -46,7 +45,8 @@ export const UseContextFC = () => {
             <CodeBlockTS>
                 {`const value = useContext(MyContext)`}
             </CodeBlockTS>
-            <p>成功執行的話就會顯示 {value}</p>
+            <p>成功執行的話就會顯示</p>
+            <p className='hightlight'>{value}</p>
 
             <p>當然，我們可以複雜一些，像是可以加上function讓我們去更新內容，例如</p>
             <CodeBlockTS>
@@ -89,7 +89,8 @@ const updateValue2 = (newValue: string) => {
             </CodeBlockTS>
 
 
-            <p>成功執行的話就會顯示 {value2}</p>
+            <p>成功執行的話就會顯示</p>
+            <p className='hightlight'>{value2}</p>
             <input type="text" value={updatedValue} onChange={handleChange} placeholder="請輸入要更改的value" />
             <button onClick={handleClick}>更新</button>
 
@@ -104,3 +105,4 @@ export const MyContext2 = React.createContext({
     updateValue2: (value2: string) => {
     }
 });
+

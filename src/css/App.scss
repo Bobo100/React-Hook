@@ -49,6 +49,13 @@ h3 {
   padding: 10px;
 }
 
+h1 {
+  background-color: #ffa601;
+  color: #383838;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
 p {
   margin: 0;
   padding: 10px;
@@ -77,6 +84,13 @@ input {
   margin: 10px;
   padding: 10px;
   text-transform: uppercase;
+}
+
+.hightlight {
+  background-color: #ffa601;
+  color: #282c34;
+
+  font-size: 2rem;
 }
 
 @media screen and (max-width: 960px) {
