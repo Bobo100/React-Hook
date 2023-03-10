@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './css/App.scss';
 import {
   BrowserRouter as Router,
@@ -8,8 +8,15 @@ import {
 
 import { Home } from './pages/Home';
 import { NotFoundPage } from './pages/Error';
+import Prism from "prismjs";
+import "prismjs/components/prism-typescript";
+import "prismjs/themes/prism-tomorrow.css";
+
 
 function App() {
+  useEffect(() => {
+    Prism.highlightAll()
+  }, [])
   return (
     <div className="App">
       <Router basename="/React-Hook">
