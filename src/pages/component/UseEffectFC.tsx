@@ -26,6 +26,10 @@ export const UseEffectFC = () => {
 
             <h2>Example</h2>
             <CodeBlockTS>
+                {`useEffect(() => {副作用操作}, [依賴的參數])`}
+            </CodeBlockTS>
+            就會有三種常見的形式：
+            <CodeBlockTS>
                 {`
 // 每次組件渲染時都會執行副作用操作
 useEffect(() => {
