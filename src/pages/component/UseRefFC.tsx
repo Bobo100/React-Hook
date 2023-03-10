@@ -74,37 +74,14 @@ export const UseRefFC = () => {
                 <button onClick={startTimer}>Start</button>
                 <button onClick={stopTimer}>Stop</button>
             </div>
-            <UseReFCTimer />
-            <CodeBlockTS>
-                {`
-// 範例：使用 useRef 保存 setTimeout 的 id
-const secondsRef = useRef<number>(0);
-const intervalRef = useRef<number>(0);
-const isRunning = useRef<boolean>(false);
-// 為了看到更新狀態，我們在這裡加一個 useState，之後再用它來觸發重新渲染
-const [count, setCount] = useState(0);
-// 開始計時
-function startTimer() {
-    if (!isRunning.current) {
-        isRunning.current = true;
-        intervalRef.current = window.setInterval(() => {
-            secondsRef.current++;
-        }, 1000);
-    }
-}
-// 停止計時，清除定時器
-function stopTimer() {
-    clearInterval(intervalRef.current);
-    isRunning.current = false;
-}
-                `}
-            </CodeBlockTS>
+            {/* <UseReFCTimer /> */}
+
 
         </div>
     );
 };
 
-const UseReFCTimer = () => {
+export const UseReFCTimer = () => {
     // 範例：使用 useRef 保存 setTimeout 的 id
     const secondsRef = useRef<number>(0);
     const intervalRef = useRef<number>(0);
@@ -130,12 +107,40 @@ const UseReFCTimer = () => {
     }
 
     return (
-        <div>
-            <p>{secondsRef.current} seconds (useRef) 不會重新渲染，所以它有在更新，但我們看不到</p>
-            <button onClick={startTimer}>Start</button>
-            <button onClick={stopTimer}>Stop</button>
+        <>
+            <div>
+                <p>{secondsRef.current} seconds (useRef) 不會重新渲染，所以它有在更新，但我們看不到</p>
+                <button onClick={startTimer}>Start</button>
+                <button onClick={stopTimer}>Stop</button>
 
-            <button onClick={() => setCount(count + 1)}>點這個可以看到更新的樣子</button>
-        </div>
+                <button onClick={() => setCount(count + 1)}>點這個可以看到更新的樣子</button>
+            </div>
+            <div>
+                <CodeBlockTS>
+                    {`
+// 範例：使用 useRef 保存 setTimeout 的 id
+const secondsRef = useRef<number>(0);
+const intervalRef = useRef<number>(0);
+const isRunning = useRef<boolean>(false);
+// 為了看到更新狀態，我們在這裡加一個 useState，之後再用它來觸發重新渲染
+const [count, setCount] = useState(0);
+// 開始計時
+function startTimer() {
+    if (!isRunning.current) {
+        isRunning.current = true;
+        intervalRef.current = window.setInterval(() => {
+            secondsRef.current++;
+        }, 1000);
+    }
+}
+// 停止計時，清除定時器
+function stopTimer() {
+    clearInterval(intervalRef.current);
+    isRunning.current = false;
+}
+                `}
+                </CodeBlockTS>
+            </div>
+        </>
     );
 }
