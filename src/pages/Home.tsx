@@ -13,7 +13,8 @@ export const Home = () => {
 
     return (
         <div className="container">
-
+            <h1>最近找到一個很棒的教學網站</h1>
+            <h2>https://courses.webdevsimplified.com/view/courses/react-hooks-simplified</h2>
             <UseStateFC />
             <UseRefFC />
             <UseReFCTimer />
