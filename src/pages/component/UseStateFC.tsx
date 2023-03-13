@@ -184,9 +184,10 @@ const [obj, setObj] = useState(() => obj);`}
             <p>這時候，第一種寫法就會重新執行一次，而第二種寫法就不會</p>
             <button onClick={() => setCount(prevState => prevState + 1)}>Increment</button> */}
 
-            <p>當然，如果你的初始值是很複雜的一個函數或是一個函數然後去return一個值，那麼我們會建議用function in function的方式去宣告</p>
-            <p>因為這樣可以讓你在每次render時，都可以取得最新的props或state</p>
-
+            <p>當然，如果你的初始值是很複雜的，像是計算初始值很耗時或可能引起副作用，例如像從Server端載入資料或本地存儲加載，那麼我們會建議用function in function的方式去宣告</p>
+            <p>這樣可以保證只會在第一次render時執行一次</p>
+            
+        
             <p>舉例來說</p>
             <CodeBlockTS>
                 {`const [count4, setCount4] = useState(getInitialCount()
