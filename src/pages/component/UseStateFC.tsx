@@ -21,33 +21,7 @@ const UseStateFC = () => {
         setCount2(prevState => prevState + 1);
         setCount2(prevState => prevState + 1);
     }
-
-    // 宣告物件
-    const [person, setPerson] = useState({
-        name: 'Peter',
-        age: 20
-    });
-
-    function changeName() {
-        console.log("render")
-        setPerson({ ...person, name: 'John' });
-    }
-    // 宣告物件 用 function in function
-    const [person2, setPerson2] = useState({
-        name: 'Peter',
-        age: 20
-    });
-
-    function changeName2() {
-        console.log("render")
-        setPerson2(prevState => {
-            return {
-                ...prevState,
-                name: 'John'
-            }
-        });
-    }
-
+    
     //////////////////////////////////////////
     const [count3, setCount3] = useState(() => {
         console.log("initial count3")
