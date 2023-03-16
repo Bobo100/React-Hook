@@ -52,6 +52,15 @@ export const UseRefFC = () => {
                 {`<div ref={myRef}></div>`}
             </CodeBlockTS>
 
+            <p>之後，我們便可以透過 myRef.current 來取得這個物件的屬性或方法，也就可以對這個物件進行操作。例如：</p>            
+            <CodeBlockTS>
+                {`function handleClick() {
+    if (myRef.current) {
+        myRef.current.style.color = 'red';
+    }
+}`}
+            </CodeBlockTS>
+
 
             <div ref={myRef}>
                 <p>點選下面按鈕，將會將這段文字變成紅色</p>
