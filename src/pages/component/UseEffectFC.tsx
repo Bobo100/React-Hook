@@ -1,5 +1,6 @@
 // UseEffect 範例
 import React, { useState, useEffect } from 'react';
+import ClearButton from './ClearButton';
 import { CodeBlockTS } from './Common';
 
 export const UseEffectFC = () => {
@@ -53,6 +54,8 @@ useEffect(() => {
 }, [count]);`}
             </CodeBlockTS>
 
+            <ClearButton />
+            
         </div>
     );
 };

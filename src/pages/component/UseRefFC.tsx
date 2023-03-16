@@ -109,7 +109,7 @@ export const UseReFCTimer = () => {
     return (
         <>
             <div>
-                <p>{secondsRef.current} seconds (useRef) 不會重新渲染，所以它有在更新，但我們看不到</p>
+                <p>{secondsRef.current} seconds (useRef) 不會重新渲染，雖然它有在更新，但我們看不到</p>
                 <button onClick={startTimer}>Start</button>
                 <button onClick={stopTimer}>Stop</button>
 

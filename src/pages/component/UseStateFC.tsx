@@ -1,7 +1,9 @@
 // UseState 範例
 import { useState } from "react";
+import ClearButton from "./ClearButton";
 import { CodeBlockTS } from "./Common";
 const UseStateFC = () => {
+    //////////////////////////////////////////
     const [count, setCount] = useState(0);
 
     function increment() {
@@ -21,7 +23,7 @@ const UseStateFC = () => {
         setCount2(prevState => prevState + 1);
         setCount2(prevState => prevState + 1);
     }
-    
+
     //////////////////////////////////////////
     const [count3, setCount3] = useState(() => {
         console.log("initial count3")
@@ -62,7 +64,7 @@ const UseStateFC = () => {
             <h1>useState</h1>
             <p>useState使函數組件有狀態，類似於class組件的this.state。</p>
             <p>使用方式: const [state, setState] = useState(initialState); <br />
-                第一個參數給出初始值，setState是一個方法用於更新狀態的值</p>
+                state是狀態，setState是設定狀態的方法，initialState是初始狀態，可以是任何值，包括物件和陣列。</p>
             <h2>Example</h2>
             <CodeBlockTS>
                 {`const [count, setCount] = useState(0);`}
@@ -162,10 +164,15 @@ function getInitialCount() {
             <p>當我們透過button去更新state的時候，就會發現兩個宣告方式的差別</p>
             <p>請打開console，你會發現第一種寫法，每次render時，都會執行一次這個function，所以我只要更新到其他的state之類的就會導致它重新執行</p>
             <p>console.log("do nothing4")就會一直執行，會吃效能</p>
+            <p>反之，無論你怎麼去更改count3，它都只會在第一次render時執行一次</p>
+            <p>console.log("do nothing3")就只會執行一次for迴圈</p>
+
             <p className="hightlight">Count: {count3}</p>
             <button onClick={increment3}>觸發Button count3</button>
             <p className="hightlight">Count: {count4}</p>
             <button onClick={increment4}>觸發Button count4</button>
+
+            <ClearButton />
 
             <p>例如，我們想再渲染進頁面的時候獲得現在的時間</p>
             <CodeBlockTS>
@@ -175,6 +182,7 @@ function getInitialCount() {
 });`}
             </CodeBlockTS>
             <p>這樣的話，我們就可以在頁面上顯示現在的時間</p>
+            <p>當然，這樣的寫法並不會隨著時間的變化而變化</p>
             <p className="hightlight">Current Time: {currentTime}</p>
         </div >
     );
