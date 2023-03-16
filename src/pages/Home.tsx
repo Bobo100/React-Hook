@@ -3,6 +3,7 @@ import UseStateFC from './component/UseStateFC';
 import { UseRefFC, UseReFCTimer } from './component/UseRefFC';
 import { UseEffectFC } from './component/UseEffectFC';
 import { UseContextFC, MyContext, MyContext2 } from './component/UseContextFC';
+import UseStateFCMore from './component/UseStateFCMore';
 export const Home = () => {
 
     const [value, setValue] = useState('defaultValue');
@@ -16,6 +17,7 @@ export const Home = () => {
             <h1>最近找到一個很棒的教學網站</h1>
             <h2>https://courses.webdevsimplified.com/view/courses/react-hooks-simplified</h2>
             <UseStateFC />
+            <UseStateFCMore />
             <UseRefFC />
             <UseReFCTimer />
             <UseEffectFC />
