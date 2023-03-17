@@ -6,7 +6,7 @@ export default function ClearButton() {
 
     return (
         <div>
-            <button onClick={clearConsole}>Clear Console</button>
+            <button onClick={clearConsole}>點我清除控制台內容</button>
         </div>
     )
 }

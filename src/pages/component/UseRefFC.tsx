@@ -1,7 +1,7 @@
 // UseRef 範例
 import { useRef, useState } from 'react';
-import { CodeBlockTS } from './Common';
-
+import { Prism } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 export const UseRefFC = () => {
 
     const myRef = useRef<HTMLDivElement>(null);
@@ -43,23 +43,23 @@ export const UseRefFC = () => {
             <p>然後，在要ref(連接)的物件上寫上ref屬性即可：{`<div ref={myRef}></div>`} </p>
 
             <h2>Example</h2>
-            <CodeBlockTS>
+            <Prism language="tsx" style={vscDarkPlus}>
                 {`const myRef = useRef<HTMLDivElement>(null);`}
-            </CodeBlockTS>
+            </Prism>
 
             <p>然後，在要ref的物件上</p>
-            <CodeBlockTS>
+            <Prism language="tsx" style={vscDarkPlus}>
                 {`<div ref={myRef}></div>`}
-            </CodeBlockTS>
+            </Prism>
 
             <p>之後，我們便可以透過 myRef.current 來取得這個物件的屬性或方法，也就可以對這個物件進行操作。例如：</p>            
-            <CodeBlockTS>
+            <Prism language="tsx" style={vscDarkPlus}>
                 {`function handleClick() {
     if (myRef.current) {
         myRef.current.style.color = 'red';
     }
 }`}
-            </CodeBlockTS>
+            </Prism>
 
 
             <div ref={myRef}>
@@ -125,7 +125,7 @@ export const UseReFCTimer = () => {
                 <button onClick={() => setCount(count + 1)}>點這個可以看到更新的樣子</button>
             </div>
             <div>
-                <CodeBlockTS>
+                <Prism language="tsx" style={vscDarkPlus}>
                     {`
 // 範例：使用 useRef 保存 setTimeout 的 id
 const secondsRef = useRef<number>(0);
@@ -148,7 +148,7 @@ function stopTimer() {
     isRunning.current = false;
 }
                 `}
-                </CodeBlockTS>
+                </Prism>
             </div>
         </>
     );

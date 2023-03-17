@@ -1,7 +1,8 @@
 // UseState 範例
 import { useState } from "react";
 import ClearButton from "./ClearButton";
-import { CodeBlockTS } from "./Common";
+import { Prism } from 'react-syntax-highlighter';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 const UseStateFCMore = () => {
     //////////////////////////////////////////
     const [count3, setCount3] = useState(() => {
@@ -39,13 +40,24 @@ const UseStateFCMore = () => {
         return now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
     });
 
+    // useEffect(() => {
+    //     const intervalId = setInterval(() => {
+    //         const now = new Date();
+    //         setCurrentTime(
+    //             now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
+    //         );
+    //     }, 1000);
+
+    //     return () => clearInterval(intervalId);
+    // }, []);
+
     return (
         <div>
             <h2>useState初始值 (補充說明)</h2>
             <p>當然，如果你的初始值是很複雜的，像是計算初始值很耗時或可能引起副作用，例如像從Server端載入資料或本地存儲加載，那麼我們會建議用function in function的方式去宣告，這樣可以保證只會在第一次render時執行一次</p>
 
             <p>舉例來說</p>
-            <CodeBlockTS>
+            <Prism language="tsx" style={vscDarkPlus}>
                 {`const [count4, setCount4] = useState(getInitialCount());
 function getInitialCount() {
     console.log("initial count4");
@@ -55,11 +67,11 @@ function getInitialCount() {
     }
     return 0;
 }`}
-            </CodeBlockTS>
+            </Prism>
             <p>這樣的話，每次render時，都會執行一次這個function</p>
             <p>如果你的初始值是一個很複雜的函數，那麼這樣的寫法就會導致你的程式碼執行效能變差</p>
             <p>所以我們建議你用function in function的方式去宣告</p>
-            <CodeBlockTS>
+            <Prism language="tsx" style={vscDarkPlus}>
                 {`const [count3, setCount3] = useState(() => {
     console.log("initial count3")
     for (let i = 0; i < 100; i++) {
@@ -68,7 +80,7 @@ function getInitialCount() {
     }
     return 0;
 });`}
-            </CodeBlockTS>
+            </Prism>
 
             <p>當我們透過button去更新state的時候，就會發現兩個宣告方式的差別</p>
             <div>
@@ -92,15 +104,30 @@ function getInitialCount() {
             <ClearButton />
 
             <p>例如，我們想再渲染進頁面的時候獲得現在的時間</p>
-            <CodeBlockTS>
+            <Prism language="tsx" style={vscDarkPlus}>
                 {`const [currentTime, setCurrentTime] = useState(() => {
     const now = new Date();
     return now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
 });`}
-            </CodeBlockTS>
+            </Prism>
             <p>這樣的話，我們就可以在頁面上顯示現在的時間</p>
             <p>當然，這樣的寫法並不會隨著時間的變化而變化</p>
-            <p className="hightlight">Current Time: {currentTime}</p>
+            <div>
+                <p className="hightlight">Current Time: {currentTime}</p>
+            </div>
+            <p>如果你想要一直實現更新，要加上下面這段code</p>
+            <Prism language="tsx" style={vscDarkPlus}>
+                {`useEffect(() => {
+    const intervalId = setInterval(() => {
+        const now = new Date();
+        setCurrentTime(
+            now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds()
+        );
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+}, []);`}
+            </Prism>
         </div >
     );
 };
