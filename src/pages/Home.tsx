@@ -11,6 +11,7 @@ import { HashLink } from 'react-router-hash-link';
 import ContextAndReducer from './component/ContextAndReducer';
 import { CallbackAndMemo } from './component/CallbackAndMemo';
 import UseTransitionFC from './component/UseTransitionFC/UseTransitionFC';
+import { ContextAndReducerCode } from './component/ContextAndReducerCode';
 export const Home = () => {
 
     const [value, setValue] = useState('defaultValue');
@@ -65,6 +66,8 @@ export const Home = () => {
                 在需要使用全局狀態的組件中，可以使用 useContext 獲取到 Context 中的 state，然後使用 useReducer 更新 Context 中的 state。這樣就可以實現全局狀態管理了。</p>
             {/* useReducer useContext搭配使用 */}
             <ContextAndReducer />
+            <p className='hightlight'>完整的程式碼</p>
+            <ContextAndReducerCode />
 
             <UseMemoFC />
             <UseCallbackFC />

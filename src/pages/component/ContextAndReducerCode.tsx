@@ -1,4 +1,9 @@
-import React, { useContext, useReducer, createContext, useState } from "react";
+import { CommonPrism } from "../Common"
+
+export const ContextAndReducerCode = () => {
+    return (
+        <CommonPrism limit_height="limit_height">
+            {`import React, { useContext, useReducer, createContext, useState } from "react";
 
 // 定義 state 和 reducer
 type IState = {
@@ -109,4 +114,7 @@ const ContextAndReducer = () => {
     );
 };
 
-export default ContextAndReducer;
+export default ContextAndReducer;`}
+        </CommonPrism>
+    )
+}

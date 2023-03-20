@@ -128,12 +128,15 @@ a {
 
 .code-block-container {
   width: 80vw;
-  // height: 500px; /* set a specific height here */
 }
 
 .code-block {
   width: 100%;
   height: 100%;
+}
+
+.limit_height {
+  height: 500px;
 }
 
 @media screen and (max-width: 960px) {
