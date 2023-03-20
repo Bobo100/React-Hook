@@ -1,28 +1,27 @@
-import React, { useEffect } from 'react';
 import './css/App.scss';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Link,
 } from "react-router-dom";
 
 import { Home } from './pages/Home';
 import { NotFoundPage } from './pages/Error';
-import Prism from "prismjs";
-import "prismjs/components/prism-typescript";
-import "prismjs/themes/prism-tomorrow.css";
 import UseStatePage from './pages/UseStatePage';
 import UseEffectPage from './pages/UseEffectPage';
 import UseRefPage from './pages/UseRefPage';
 import UseContextPage from './pages/UseContextPage';
 import ContextAndReducerPage from './pages/ContextAndReducerPage';
 import UseMemoPage from './pages/UseMemoPage';
+import UseReducerPage from './pages/UseReducerPage';
+import UseCallbackPage from './pages/UseCallbackPage';
+import CallbackAndMemoPage from './pages/CallbackAndMemoPage';
+import { Footer } from './pages/Footer';
 
 
 function App() {
-  useEffect(() => {
-    Prism.highlightAll()
-  }, [])
+
   return (
     <div className="App">
       <Router basename="/React-Hook">
@@ -31,13 +30,20 @@ function App() {
           <Route path="/useState" element={<UseStatePage />} />
           <Route path="/useRef" element={<UseRefPage />} />
           <Route path="/useEffect" element={<UseEffectPage />} />
+
           <Route path="/useContext" element={<UseContextPage />} />
-          <Route path="/different" element={<ContextAndReducerPage />} />
+          <Route path="/useReducer" element={<UseReducerPage />} />
+          <Route path="/different1" element={<ContextAndReducerPage />} />
+
           <Route path="/useMemo" element={<UseMemoPage />} />
-          
+          <Route path="/useCallback" element={<UseCallbackPage />} />
+          <Route path="/different2" element={<CallbackAndMemoPage />} />
+
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
+        <Footer />
       </Router>
+
     </div>
   );
 }

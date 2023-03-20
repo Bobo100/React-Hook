@@ -3,10 +3,10 @@ import UseStateFCMore from "./component/UseStateFC/UseStateFCMore"
 
 const UseStatePage = () => {
     return (
-        <>
+        <div className="container">
             <UseStateFC />
             <UseStateFCMore />
-        </>
+        </div>
     )
 }
 

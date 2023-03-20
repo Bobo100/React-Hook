@@ -2,9 +2,9 @@ import { UseEffectFC } from "./component/UseEffectFC/UseEffectFC"
 
 const UseEffectPage = () => {
     return (
-        <>
-            <UseEffectFC />
-        </>
+        <div className="container">
+            <UseEffectFC />            
+        </div>
     )
 }
 

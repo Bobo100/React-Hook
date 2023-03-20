@@ -3,7 +3,7 @@ import { ContextAndReducerCode } from "./component/ContextAndReducerCode"
 
 const ContextAndReducerPage = () => {
     return (
-        <>
+        <div className="container">
             <h2 id='different1' className='hightlight'>關於useContext和useReducer的差別</h2>
             <p>關於useContext和useReducer的差別</p>
             <p>先說一下，基本上兩者能做的事情非常像，但我們還使以這些元件原先的開發目的來說明：</p>
@@ -24,7 +24,7 @@ const ContextAndReducerPage = () => {
             <ContextAndReducer />
             <p className='hightlight'>完整的程式碼</p>
             <ContextAndReducerCode />
-        </>
+        </div>
     )
 }
 

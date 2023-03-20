@@ -1,11 +1,10 @@
-import { UseReFCTimer, UseRefFC } from "./component/UseRefFC/UseRefFC"
-import UseStatePage from "./UseStatePage"
+import { UseRefFC, UseReFCTimer } from "./component/UseRefFC/UseRefFC"
 const UseRefPage = () => {
     return (
-        <>
+        <div className="container">
             <UseRefFC />
             <UseReFCTimer />
-        </>
+        </div>
     )
 }
 
