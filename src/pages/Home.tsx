@@ -7,69 +7,35 @@ import UseStateFCMore from './component/UseStateFC/UseStateFCMore';
 import { UseCallbackFC } from './component/UseCallbackFC/UseCallbackFC';
 import { UseMemoFC } from './component/UseMemoFC/UseMemoFC';
 import { UseReducerFC } from './component/UseReducerFc/UseReducerFC';
-import { HashLink } from 'react-router-hash-link';
 import ContextAndReducer from './component/ContextAndReducer';
 import { CallbackAndMemo } from './component/CallbackAndMemo';
 import UseTransitionFC from './component/UseTransitionFC/UseTransitionFC';
 import { ContextAndReducerCode } from './component/ContextAndReducerCode';
+import { Link } from 'react-router-dom';
 export const Home = () => {
 
-    const [value, setValue] = useState('defaultValue');
 
-    const updateValue2 = (newValue: string) => {
-        setValue(newValue);
-    }
 
     return (
         <div className="container">
             <p>快速連結區</p>
             <div>
-                <HashLink to="/#useState" className='hightlight'>useState</HashLink>
-                <HashLink to="/#useRef" className='hightlight'>useRef</HashLink>
-                <HashLink to="/#useEffect" className='hightlight'>useEffect</HashLink>
-                <HashLink to="/#useContext" className='hightlight'>useContext</HashLink>
-                <HashLink to="/#useReducer" className='hightlight'>useReducer</HashLink>
-                <HashLink to="/#different1" className='hightlight'>useContext和useReducer的差別</HashLink>
-                <HashLink to="/#useMemo" className='hightlight'>useMemo</HashLink>
-                <HashLink to="/#useCallback" className='hightlight'>useCallback</HashLink>
-                <HashLink to="/#different2" className='hightlight'>useMemo和useCallback的差別</HashLink>
-                <HashLink to="/#useTransition" className='hightlight'>useTransition</HashLink>
+                <Link to="/useState" className='hightlight'>useState</Link>
+                <Link to="/useRef" className='hightlight'>useRef</Link>
+                <Link to="/useEffect" className='hightlight'>useEffect</Link>
+                <Link to="/useContext" className='hightlight'>useContext</Link>
+                <Link to="/useReducer" className='hightlight'>useReducer</Link>
+                <Link to="/different1" className='hightlight'>useContext和useReducer的差別</Link>
+                <Link to="/useMemo" className='hightlight'>useMemo</Link>
+                <Link to="/useCallback" className='hightlight'>useCallback</Link>
+                <Link to="/different2" className='hightlight'>useMemo和useCallback的差別</Link>
+                <Link to="/useTransition" className='hightlight'>useTransition</Link>
             </div>
             <a className='hightlight' href="https://courses.webdevsimplified.com/view/courses/react-hooks-simplified">很棒的教學網站</a>
-            <UseStateFC />
-            <UseStateFCMore />
-            <UseRefFC />
-            <UseReFCTimer />
-            <UseEffectFC />
-            <MyContext.Provider value="Hello, world!">
-                <MyContext2.Provider value={{ value2: value, updateValue2 }}>
-                    <UseContextFC />
-                </MyContext2.Provider>
-            </MyContext.Provider>
-            <UseReducerFC />
 
-            <h2 id='different1' className='hightlight'>關於useContext和useReducer的差別</h2>
-            <p>關於useContext和useReducer的差別</p>
-            <p>先說一下，基本上兩者能做的事情非常像，但我們還使以這些元件原先的開發目的來說明：</p>
-            <ol>
-                <li>useContext是用來獲取全局的context，而useReducer是用來處理複雜的狀態邏輯。</li>
-            </ol>
-            <p>useContext 主要用於獲取 React 中的全局狀態。<br />
-                通常情況下，當我們需要在多個組件之間共享數據時，可以使用 Context 來實現。</p>
 
-            <p>useReducer 則主要用於處理複雜的狀態邏輯。<br />
-                它可以幫助開發者更好地管理組件中的狀態，尤其是當狀態的更新有較複雜的邏輯時。</p>
 
-            <p className='hightlight'>實現全局狀態管理</p>
-            <p>如果要實現全局狀態管理，通常會同時使用 useContext 和 useReducer。
-                具體來說，開發者可以在 Context 中定義一個 state 和 reducer，然後將它們注入到組件中。
-                在需要使用全局狀態的組件中，可以使用 useContext 獲取到 Context 中的 state，然後使用 useReducer 更新 Context 中的 state。這樣就可以實現全局狀態管理了。</p>
-            {/* useReducer useContext搭配使用 */}
-            <ContextAndReducer />
-            <p className='hightlight'>完整的程式碼</p>
-            <ContextAndReducerCode />
-
-            <UseMemoFC />
+           
             <UseCallbackFC />
             <h2 id="different2" className='hightlight'>關於useCallback和useMemo的差別</h2>
             <p>關於useCallback和useMemo的差別，可以簡單地解釋成下面兩點：</p>
