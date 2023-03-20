@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import ContextAndReducer from "./component/ContextAndReducer"
 import { ContextAndReducerCode } from "./component/ContextAndReducerCode"
 
 const ContextAndReducerPage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }, []);
     return (
         <div className="container">
             <h2 id='different1' className='hightlight'>關於useContext和useReducer的差別</h2>

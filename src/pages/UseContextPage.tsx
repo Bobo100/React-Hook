@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MyContext, MyContext2, UseContextFC } from "./component/UseContextFC/UseContextFC"
 
 const UseContextPage = () => {
@@ -7,6 +7,10 @@ const UseContextPage = () => {
     const updateValue2 = (newValue: string) => {
         setValue(newValue);
     }
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      }, []);
 
     return (
         <div className="container">

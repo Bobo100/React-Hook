@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import { CallbackAndMemo } from "./component/CallbackAndMemo"
 
 const CallbackAndMemoPage = () => {
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }, []);
+    
     return (
         <div className="container">
             <h2 id="different2" className='hightlight'>關於useCallback和useMemo的差別</h2>
