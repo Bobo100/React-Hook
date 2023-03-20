@@ -1,9 +1,9 @@
 // UseCallback 範例
-import React, { useContext, useState, useCallback } from 'react'
+import React, { useState, useCallback, useMemo } from 'react'
 import { Prism } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import ClearButton from './ClearButton';
-import { List } from './UseCallbackFC/List';
+import ClearButton from '../ClearButton';
+import { List } from './List';
 
 export function UseCallbackFC() {
     const [number, setNumber] = useState(1)
@@ -17,6 +17,11 @@ export function UseCallbackFC() {
         console.log("useCallback")
         return [number + 1, number + 2, number + 3]
     }, [number])
+    //// 這邊也可以寫成
+    // function getItemsfunction() {
+    //     return [number + 1, number + 2, number + 3]
+    // }
+    // const getItems = useCallback(getItemsfunction, [number])
 
     const getItemsWithOutUseCallback = () => {
         console.log("Without useCallback")
@@ -31,11 +36,11 @@ export function UseCallbackFC() {
 
     return (
         <div>
-            <h1>useCallback</h1>
+            <h1 id="useCallback">useCallback</h1>
             <p>useCallback是一個React Hook，可以讓你在函數組件中儲存一個函數，並且在函數組件重新渲染時，不會重新創建這個函數。</p>
             <p>useCallback接收兩個參數，第一個參數是一個函數，第二個參數是一個陣列，陣列中的元素是函數所依賴的值。</p>
 
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`const cachedFn = useCallback(fn, dependencies)
 `}
             </Prism>
@@ -51,7 +56,7 @@ export function UseCallbackFC() {
             <p>並且透過更改其他的state來觀察useCallback的效果(因為會重新render) {`=>我們前面有教過喔`}。</p>
             <p>這邊新增一個重新渲染theme的按鈕，來觀察useCallback的效果。</p>
             <p>請開啟console觀察。</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`const [number, setNumber] = useState(1)
 
 function inputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -72,12 +77,13 @@ const getItemsWithOutUseCallback = () => {
             </Prism>
 
             <p style={theme}>{`The current number is ${number}`}</p>
-            <input type="number" value={number} onChange={inputOnChange} />
+            <input type="number" value={number} onChange={inputOnChange} placeholder="1" />
             <button onClick={() => setDrak(prevDark => !prevDark)}>Change Theme</button>
             <ClearButton />
-
-            <List getItems={getItems} />
-            <List getItems={getItemsWithOutUseCallback} />
+            <div className='flexAll'>
+                <List getItems={getItems} />
+                <List getItems={getItemsWithOutUseCallback} />
+            </div>
         </div>
     )
 }

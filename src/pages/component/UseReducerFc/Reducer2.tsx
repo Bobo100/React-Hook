@@ -1,4 +1,3 @@
-import React from "react";
 export interface State2 {
     value: string[];
 }
@@ -20,7 +19,7 @@ export function reducer2(state: State2, action: Action2) {
         case ActionType2.ADD:
             return {
                 ...state,
-                value: [...state.value, payload],
+                value: [...state.value, payload.text],
             };
         case ActionType2.DELETE:
             return {

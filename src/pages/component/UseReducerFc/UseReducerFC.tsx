@@ -1,8 +1,9 @@
 // UseReducer 範例
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { Prism } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import { Action2, ActionType2, reducer2 } from "./UseReducerFc/Reducer2";
+import uuid from "react-uuid";
+import { Action2, ActionType2, reducer2 } from "./Reducer2";
 
 // 宣告state的interface
 type State = {
@@ -46,10 +47,16 @@ function increment(dispatch: React.Dispatch<Action>) {
     // 我們這邊回傳要進行 case ActionType.INCREASE 的動作 然後 payload 是 1
     // 所以就會是 state.count + 1
 }
-
 function decrement(dispatch: React.Dispatch<Action>) {
     dispatch({ type: ActionType.DECREASE, payload: 1 });
 }
+
+
+// Action 2
+function toDo_add(dispatch2: React.Dispatch<Action2>, text: string) {
+    dispatch2({ type: ActionType2.ADD, payload: { text } });
+}
+
 function toDo_delete(dispatch2: React.Dispatch<Action2>, index: number) {
     dispatch2({ type: ActionType2.DELETE, payload: index });
 }
@@ -58,10 +65,15 @@ export const UseReducerFC = () => {
 
     const [state, dispatch] = useReducer(reducer, { count: 1, string: "hello" });
     const [state2, dispatch2] = useReducer(reducer2, { value: ["hello", "world"] });
+    const [input, setInput] = useState("")
+
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInput(e.target.value);
+    }
 
     return (
         <div>
-            <h1>UseReducer</h1>
+            <h1 id="useReducer">useReducer</h1>
             <p>useReducer是一個hook，它接受一個reducer函數和一個初始值，並返回一個state和dispatch函數。</p>
             <p>useReducer的用法和redux很像，但是它不需要額外的套件</p>
             <p>useReducer的reducer函數接受兩個參數，分別是當前的state和action，根據資料處理後會回傳一個新的狀態。</p>
@@ -134,17 +146,19 @@ function decrement(dispatch: any) {
             <button onClick={() => decrement(dispatch)}>-按鈕</button>
 
             <h2>我們也可以做一個TODO的例子</h2>
+            <div className="border">
+                <input type="text" onChange={handleOnChange} placeholder="text"/>
+                <button onClick={() => toDo_add(dispatch2, input)}>新增</button>
 
-            {state2.value.map((item, index) => {
-                return (
-                    <>
-                        <p key={index}>{item}</p>
-                        <button onClick={() => toDo_delete(dispatch2, index)}>刪除</button>
-                    </>
-
-                );
-            })}
-
+                {state2.value.map((item, index) => {
+                    return (
+                        <div key={uuid()}>
+                            <p className="border margin">{item}</p>
+                            <button onClick={() => toDo_delete(dispatch2, index)}>刪除</button>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 };

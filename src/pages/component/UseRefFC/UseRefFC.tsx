@@ -35,7 +35,7 @@ export const UseRefFC = () => {
 
     return (
         <div>
-            <h1>useRef</h1>
+            <h1 id='useRef'>useRef</h1>
             <p>useRef 是一個 React Hook，可以用來創建一個可變的引用(reference) 值，並且不會觸發組件重新渲染。</p>
             <p>useRef 會在每次渲染時返回同一個 ref 物件。</p>
             <p>使用方式：const myRef = useRef(initialState 通常是null);<br />
@@ -43,17 +43,17 @@ export const UseRefFC = () => {
             <p>然後，在要ref(連接)的物件上寫上ref屬性即可：{`<div ref={myRef}></div>`} </p>
 
             <h2>Example</h2>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`const myRef = useRef<HTMLDivElement>(null);`}
             </Prism>
 
             <p>然後，在要ref的物件上</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`<div ref={myRef}></div>`}
             </Prism>
 
             <p>之後，我們便可以透過 myRef.current 來取得這個物件的屬性或方法，也就可以對這個物件進行操作。例如：</p>            
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`function handleClick() {
     if (myRef.current) {
         myRef.current.style.color = 'red';
@@ -125,7 +125,7 @@ export const UseReFCTimer = () => {
                 <button onClick={() => setCount(count + 1)}>點這個可以看到更新的樣子</button>
             </div>
             <div>
-                <Prism language="tsx" style={vscDarkPlus}>
+                <Prism language="javascript" style={vscDarkPlus}>
                     {`
 // 範例：使用 useRef 保存 setTimeout 的 id
 const secondsRef = useRef<number>(0);

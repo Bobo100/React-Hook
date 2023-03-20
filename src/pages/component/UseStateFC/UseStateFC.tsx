@@ -27,26 +27,26 @@ const UseStateFC = () => {
 
     return (
         <div>
-            <h1>useState</h1>
+            <h1 id="useState">useState</h1>
             <p>useState使函數組件有狀態，類似於class組件的this.state。</p>
             <p>使用方式: const [state, setState] = useState(initialState); <br />
                 state是狀態，setState是設定狀態的方法，initialState是初始狀態，可以是任何值，包括物件和陣列。</p>
             <h2>Example</h2>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`const [count, setCount] = useState(0);`}
             </Prism>
 
             <p>然後我們新增一個Button，點擊時調用setCount方法，將count的值加1。</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`<button onClick={() => setCount(prevState => prevState + 1)}>Increment</button>`}
             </Prism>
 
             <p>你也可以用帶入function的方式讓onClick去觸發</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`<button onClick={increment}>Increment Version 2</button>`}
             </Prism>
             <p>increment function則是這麼寫</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`function increment() { setCount(prevState => prevState + 1); }`}
             </Prism>
 
@@ -60,7 +60,7 @@ const UseStateFC = () => {
             <p>接下來要談到useState的重要觀念</p>
             <h2>useState的重要觀念</h2>
             <p>剛剛上面有看到我們寫了這樣的程式碼</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`setCount(prevState => prevState + 1);`}
             </Prism>
             <p>我們稱這種寫法為function in function</p>
@@ -73,7 +73,7 @@ const UseStateFC = () => {
 
             <p>我們可以看一下差別</p>
             <p>我們新增了一個function，裡面會去increment三次count的值</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`function increment_multiple_error() { 
     setCount2(count2 + 1);
     setCount2(count2 + 1);
@@ -88,7 +88,7 @@ const UseStateFC = () => {
             <button onClick={increment_multiple_error}>Increment Multiple Error</button>
 
             <p>所以我們要這樣寫</p>
-            <Prism language="tsx" style={vscDarkPlus}>
+            <Prism language="javascript" style={vscDarkPlus}>
                 {`function increment_multiple_error() {
     setCount2(prevState => prevState + 1);
     setCount2(prevState => prevState + 1);

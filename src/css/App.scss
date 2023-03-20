@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   background-color: #282c34;
   // min-height: 100vh;
@@ -102,6 +106,24 @@ input {
 
   display: inline-block;
   margin: 10px;
+}
+
+a {
+  color: #ffa601;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.margin {
+  margin: 10px;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.flexAll {
+  display: flex;
 }
 
 @media screen and (max-width: 960px) {
