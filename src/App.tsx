@@ -18,6 +18,7 @@ import UseReducerPage from './pages/UseReducerPage';
 import UseCallbackPage from './pages/UseCallbackPage';
 import CallbackAndMemoPage from './pages/CallbackAndMemoPage';
 import { Footer } from './pages/Footer';
+import UseTransitionPage from './pages/UseTransitionPage';
 
 
 function App() {
@@ -33,11 +34,13 @@ function App() {
 
           <Route path="/useContext" element={<UseContextPage />} />
           <Route path="/useReducer" element={<UseReducerPage />} />
-          <Route path="/different1" element={<ContextAndReducerPage />} />
+          <Route path="/ContextAndReducerPage" element={<ContextAndReducerPage />} />
 
           <Route path="/useMemo" element={<UseMemoPage />} />
           <Route path="/useCallback" element={<UseCallbackPage />} />
-          <Route path="/different2" element={<CallbackAndMemoPage />} />
+          <Route path="/CallbackAndMemoPage" element={<CallbackAndMemoPage />} />
+
+          <Route path="/useTransition" element={<UseTransitionPage />} />
 
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
