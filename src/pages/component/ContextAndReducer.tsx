@@ -103,7 +103,7 @@ const SubComponent = () => {
 };
 
 // 將所有需要使用全局狀態的子組件放在 GlobalProvider 中
-const UseContextAndReducer = () => {
+const ContextAndReducer = () => {
     return (
         <GlobalProvider>
             <SubComponent />
@@ -111,4 +111,4 @@ const UseContextAndReducer = () => {
     );
 };
 
-export default UseContextAndReducer;
+export default ContextAndReducer;
