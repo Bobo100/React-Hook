@@ -1,8 +1,14 @@
 // UseCallback 範例
-import React, { useMemo, useState, useEffect } from 'react'
+import React, { useMemo, useState, useEffect, useCallback } from 'react'
 import { Prism } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import ClearButton from '../ClearButton';
+
+
+function slowFunction(num: number) {
+    for (let i = 0; i <= 1000000000; i++) { }
+    return num * 2
+}
 export function UseMemoFC() {
     const [number, setNumber] = useState(1)
     function inputOnChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -13,6 +19,11 @@ export function UseMemoFC() {
         console.log('useMemo')
         return slowFunction(number)
     }, [number])
+
+    // const slowNumber2 = useCallback(() => {
+    //     console.log('useCallback')
+    //     return slowFunction(number)
+    // }, [number])
 
     const [drak, setDrak] = useState(false)
     // const theme = {
@@ -103,8 +114,3 @@ export function UseMemoFC() {
     )
 }
 
-
-function slowFunction(num: number) {
-    for (let i = 0; i <= 1000000000; i++) { }
-    return num * 2
-}

@@ -96,6 +96,28 @@ export const Home = () => {
             <p className='hightlight'>
                 {/* usememo 也可以避免欸 回家查證 */}
                 useCallback 則是用來避免不必要的子元件重新渲染，尤其是當某個 props 傳入子元件後，當該 props 觸發 callback 重新導致該 props 發生改變時，會使該子元件重新渲染，這時可以透過 useCallback 把 callback 函式 memoize 起來，來避免不必要的子元件渲染。
+
+
+                {/* 
+                const slowNumber = useMemo(() => {
+                    console.log('useMemo')
+                    return slowFunction(number)
+                }, [number])
+
+                const slowNumber2 = useCallback(() => {
+                    console.log('useCallback')
+                    return slowFunction(number)
+                }, [number])
+
+                function slowFunction(num: number) {
+                    for (let i = 0; i <= 1000000000; i++) { 
+                    
+                    }
+                    return num * 2
+                } 
+                我沒辦法理解欸 差別 只知道 回傳的內容不同 一個是function 一個式vaule
+                */}
+
             </p>
 
             <UseTransitionFC />
