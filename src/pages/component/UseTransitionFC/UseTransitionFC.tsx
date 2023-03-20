@@ -1,6 +1,6 @@
 // UseTransition 範例
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { CommonPrism } from '../../Common';
+
 
 const UseTransitionFC = () => {
     return (

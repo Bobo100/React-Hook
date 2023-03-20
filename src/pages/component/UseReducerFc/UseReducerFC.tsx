@@ -1,7 +1,7 @@
 // UseReducer 範例
 import { useReducer, useState } from "react";
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { CommonPrism } from '../../Common';
+
 import uuid from "react-uuid";
 import { Action2, ActionType2, reducer2 } from "./Reducer2";
 
@@ -83,7 +83,7 @@ export const UseReducerFC = () => {
             <h2>Example</h2>
             <p>首先我們先定義一個reducer函數，它接受兩個參數，分別是當前的state和action，根據資料處理後會回傳一個新的狀態。</p>
             <p>state你可以說就是存放資料的地方，而action就是存放要進行的動作，例如：加減乘除</p>
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`// 宣告state的interface
 type State = {
     count: number,
@@ -119,15 +119,15 @@ function reducer(state: State, action: Action) {
             return state;
     }
 }`}
-            </Prism>
+            </CommonPrism>
 
             <p>然後我們在component中使用useReducer，它接受一個reducer函數和一個初始值，並返回一個state和dispatch函數。</p>
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`const [state, dispatch] = useReducer(reducer, { count: 0 });`}
-            </Prism>
+            </CommonPrism>
 
             <p>最後我們在component中使用dispatch函數，並傳入一個action參數，並將action傳遞給reducer函數，根據相應的action去更新state。</p>
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`function increment(dispatch: React.Dispatch<Action>) {
     dispatch({ type: ActionType.INCREASE, payload: 1 });
     // 一定使用dispatch就會觸發reducer
@@ -138,7 +138,7 @@ function reducer(state: State, action: Action) {
 function decrement(dispatch: any) {
     dispatch({ type: "decrease", payload: 1 });
 }`}
-            </Prism>
+            </CommonPrism>
 
             <h2>都完成後，你就可以獲得下面的結果</h2>
             <p>目前的值：{state.count} 目前的字串：{state.string}</p>

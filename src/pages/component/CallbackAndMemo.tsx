@@ -1,7 +1,7 @@
 // UseCallback 範例
 import React, { useState, useCallback, useMemo } from 'react'
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { CommonPrism } from '../Common';
+
 import ClearButton from './ClearButton';
 import { List } from './UseCallbackFC/List';
 import { ListForMemo } from './UseCallbackFC/ListForMemo';
@@ -46,7 +46,7 @@ export function CallbackAndMemo() {
                 <ListForMemo getItems={getItems2} />
             </div>
 
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`// const getItems: () => number[]
 const getItems = useCallback(() => {
     console.log("useCallback")
@@ -59,7 +59,7 @@ const getItems2 = useMemo(() => {
     return [number + 1, number + 2, number + 3]
 }, [number])
 `}
-            </Prism>
+            </CommonPrism>
 
             <p>還記得我們前面說的差別嗎?</p>
             <p>所以，getItems 是一個函數，而 getItems2 是一個數值。</p>

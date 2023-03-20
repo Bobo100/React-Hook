@@ -1,8 +1,8 @@
 // UseEffect 範例
 import React, { useState, useEffect } from 'react';
 import ClearButton from '../ClearButton';
-import { Prism } from 'react-syntax-highlighter';
-import { vscDarkPlus} from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { CommonPrism } from '../../Common';
+
 export const UseEffectFC = () => {
     const [count, setCount] = useState(0);
     useEffect(() => {
@@ -27,33 +27,33 @@ export const UseEffectFC = () => {
             <p>第二個參數是一個數組，表示只有在依賴的參數發生變化時，才會執行副作用操作。</p>
 
             <h2>Example</h2>
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`useEffect(() => {副作用操作}, [依賴的參數])`}
-            </Prism>
+            </CommonPrism>
             就會有三種常見的形式：
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`
 // 每次組件渲染時都會執行副作用操作
 useEffect(() => {
     console.log('useEffect without array');
 });`}
-            </Prism>
+            </CommonPrism>
 
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`
 // 只在組件第一次渲染時執行副作用操作
 useEffect(() => {
     console.log('useEffect with empty array');
 }, []);`}
-            </Prism>
+            </CommonPrism>
 
-            <Prism language="javascript" style={vscDarkPlus}>
+            <CommonPrism>
                 {`
 // 只有在依賴的參數發生變化時，才會執行副作用操作
 useEffect(() => {
     console.log('useEffect with count');
 }, [count]);`}
-            </Prism>
+            </CommonPrism>
 
             <button onClick={() => setCount((count) => count + 1)}>點我更新count</button>
             <ClearButton />
