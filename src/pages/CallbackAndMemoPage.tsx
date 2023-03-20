@@ -22,13 +22,13 @@ const CallbackAndMemoPage = () => {
             <p>下面提供一個範例，我會解釋一下差別</p>
             <CallbackAndMemo />
 
-            <p className='hightlight'>
+            <p >
                 {/* ???  */}
                 useMemo 主要是用來最小化渲染時的計算量，尤其是當某個值需要根據複雜的計算邏輯才能取得時，可以透過 useMemo 避免每次 render 都要重新計算一次。
                 <br />
                 {/* (這時候不能用callback，因 */}
             </p>
-            <p className='hightlight'>
+            <p >
                 {/* usememo 也可以避免欸 回家查證 */}
                 useCallback 則是用來避免不必要的子元件重新渲染，尤其是當某個 props 傳入子元件後，子元件會根據這個 props 的值來決定是否要重新渲染時，可以透過 useCallback 避免每次父元件重新渲染時都要重新傳入一個新的函數給子元件。
 
@@ -54,6 +54,7 @@ const CallbackAndMemoPage = () => {
                 */}
             </p>
 
+            <p className="hightlight">最近詢問chatGPT得到的最後答案是基本上兩者都能夠互相使用，差別就只在回傳的內容不同。我要表達的是前面說的，如果要靈活的使用useMemo和useCallback，但實際上是可以互相使用的，只是回傳的內容不同而已。</p>
         </div>
     )
 }
