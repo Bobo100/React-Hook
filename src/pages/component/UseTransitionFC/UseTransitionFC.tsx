@@ -6,9 +6,11 @@ import { CommonPrism } from '../../Common';
 const UseTransitionFC = () => {
     const [isPending, startTransition] = useTransition(); // 建立一個useTransition的hook
     const [list, setList] = useState<string[]>([]) // 建立一個狀態
+    const [inputValue, setInputValue] = useState('') // 建立一個狀態
     const LIST_LENGTH = 20000; // 設定一個list的長度
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value)
         startTransition(() => {
             const l = []
             for (let i = 0; i < LIST_LENGTH; i++) {
@@ -38,9 +40,11 @@ const UseTransitionFC = () => {
                 {`const UseTransitionFC = () => {
     const [isPending, startTransition] = useTransition();
     const [list, setList] = useState<string[]>([])
+    const [inputValue, setInputValue] = useState('') // 建立一個狀態
     const LIST_LENGTH = 20000;
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value)
         startTransition(() => {
             const l = []
             for (let i = 0; i < LIST_LENGTH; i++) {
@@ -51,8 +55,9 @@ const UseTransitionFC = () => {
     }
 
     return (
-        <input type="number" placeholder='text' onChange={handleOnChange} />
+        <input type="text" placeholder='text' onChange={handleOnChange} value={inputValue} />
         {isPending ? <div>Loading...</div> : null}
+        <p>{inputValue}</p>
         <Suspense fallback={<div>Loading...</div>}>
             {!isPending ? <div className='list_limit'>
                 {list.map((item, index) => {
@@ -67,8 +72,9 @@ const UseTransitionFC = () => {
             <p>在這個範例中，我們先建立一個list，長度為20000，然後在input的onChange事件中，觸發startTransition，並且在裡面去更新狀態，這樣就可以看到loading的UI了。</p>
             <p>假如不放到startTransition裡面去更新狀態，就會造成畫面卡住。因為狀態更新的時候，會導致畫面重新渲染，這樣就會造成畫面卡住。</p>
 
-            <input type="text" placeholder='text' onChange={handleOnChange} />
+            <input type="text" placeholder='text' onChange={handleOnChange} value={inputValue} />
             {/* {isPending ? <div>loading...</div> : <div>done</div>}
+            <p>{inputValue}</p>
             {!isPending && (<div className='list_limit'>
                 {list.map((item, index) => {
                     return <div key={uuid()}>{item}</div>
@@ -78,6 +84,7 @@ const UseTransitionFC = () => {
 
             {/* 這樣寫也可以 */}
             {isPending ? <div>Loading...</div> : null}
+            <p>{inputValue}</p>
             <Suspense fallback={<div>Loading...</div>}>
                 {!isPending ? <div className='list_limit'>
                     {list.map((item, index) => {
