@@ -1,10 +1,8 @@
 // UseCallback 範例
 import React, { useMemo, useState, useEffect, useCallback } from 'react'
 import { CommonPrism } from '../../Common';
-
 import ClearButton from '../ClearButton';
-
-
+// https://www.infoq.cn/article/mM5bTiwipPPNPjhjqGtr
 function slowFunction(num: number) {
     for (let i = 0; i <= 1000000000; i++) { }
     return num * 2
