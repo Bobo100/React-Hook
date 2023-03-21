@@ -2,8 +2,7 @@ import './css/App.scss';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  Link,
+  Route
 } from "react-router-dom";
 
 import { Home } from './pages/Home';
@@ -17,8 +16,9 @@ import UseMemoPage from './pages/UseMemoPage';
 import UseReducerPage from './pages/UseReducerPage';
 import UseCallbackPage from './pages/UseCallbackPage';
 import CallbackAndMemoPage from './pages/CallbackAndMemoPage';
-import { Footer } from './pages/Footer';
+import { Footer } from './pages/component/Footer';
 import UseTransitionPage from './pages/UseTransitionPage';
+import { Navbar } from './pages/component/Navbar';
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Router basename="/React-Hook">
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/useState" element={<UseStatePage />} />

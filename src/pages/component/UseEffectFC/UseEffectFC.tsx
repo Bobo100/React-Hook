@@ -5,12 +5,16 @@ import { CommonPrism } from '../../Common';
 
 export const UseEffectFC = () => {
     const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        console.clear();
+        console.log('useEffect with empty array');
+    }, []);
+
     useEffect(() => {
         console.log('useEffect without array　（所以只要每次component重新render，就會執行一次）');
     });
-    useEffect(() => {
-        console.log('useEffect with empty array');
-    }, []);
+
     useEffect(() => {
         console.log("count發生改變啦！")
         console.log('useEffect with count，因為count是依賴的參數，所以只有在count發生變化時，才會執行副作用操作')

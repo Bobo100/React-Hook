@@ -6,6 +6,7 @@ import { CommonPrism } from '../../Common';
 const UseStateFCMore = () => {
     //////////////////////////////////////////
     const [count3, setCount3] = useState(() => {
+        // console.clear();
         console.log("initial count3")
         for (let i = 0; i < 100; i++) {
             // do nothing
@@ -52,8 +53,8 @@ const UseStateFCMore = () => {
     // }, []);
 
     return (
-        <div>
-            <h2>useState初始值 (補充說明)</h2>
+        <>
+            <h1>useState初始值 (補充說明)</h1>
             <p>當然，如果你的初始值是很複雜的，像是計算初始值很耗時或可能引起副作用，例如像從Server端載入資料或本地存儲加載，那麼我們會建議用function in function的方式去宣告，這樣可以保證只會在第一次render時執行一次</p>
 
             <p>舉例來說</p>
@@ -128,7 +129,7 @@ function getInitialCount() {
     return () => clearInterval(intervalId);
 }, []);`}
             </CommonPrism>
-        </div >
+        </ >
     );
 };
 export default UseStateFCMore;

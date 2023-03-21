@@ -1,3 +1,5 @@
+$navbar-height: 150px;
+
 * {
   box-sizing: border-box;
 }
@@ -19,8 +21,29 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin: 20px auto;
+  // margin: 20px auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
   max-width: 1440px;
+
+  padding-top: $navbar-height;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: $navbar-height;
+  background-color: #0f1114;
+  z-index: 100;
+  transition: top 0.3s;
+
+  padding-left: 20px;
+}
+
+.navbar--hidden {
+  top: -$navbar-height;
 }
 
 .flex {
@@ -139,6 +162,11 @@ a {
   height: 500px;
 }
 
+.list_limit {
+  height: 250px;
+  overflow-y: scroll;
+}
+
 @media screen and (max-width: 960px) {
   .flex {
     display: inline-block;
@@ -146,5 +174,11 @@ a {
 
   .container {
     margin: 20px;
+
+    padding-top: 0;
+  }
+
+  nav {
+    display: none;
   }
 }

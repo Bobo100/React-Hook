@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
 
-export const Footer = () => {
+const RoutesLink = () => {
     return (
-        <div>
-            <p>快速連結區</p>
+        <>
             <Link to="/" className='hightlight'>Home</Link>
             <Link to="/useState" className='hightlight'>useState</Link>
             <Link to="/useRef" className='hightlight'>useRef</Link>
@@ -17,6 +16,8 @@ export const Footer = () => {
             <Link to="/useTransition" className='hightlight'>useTransition</Link>
 
             <a className='hightlight' href="https://courses.webdevsimplified.com/view/courses/react-hooks-simplified">很棒的教學網站</a>
-        </div>
+        </>
     )
 }
+
+export default RoutesLink

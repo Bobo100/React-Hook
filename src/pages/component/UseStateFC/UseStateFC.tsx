@@ -1,5 +1,5 @@
 // UseState 範例
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CommonPrism } from '../../Common';
 
 
@@ -24,6 +24,19 @@ const UseStateFC = () => {
         setCount2(prevState => prevState + 1);
         setCount2(prevState => prevState + 1);
     }
+
+    const [obj, setObj] = useState({ value: 0 });
+
+    const handleClickError = () => {
+        obj.value += 1; // 直接修改 obj 物件的內容
+        setObj(obj); // 透過同一個物件更新 state
+    }
+
+    const handleClick = () => {
+        const newObj = { value: obj.value + 1 }; // 創建一個新物件
+        setObj(newObj);
+    }
+
 
     return (
         <div>
@@ -98,6 +111,34 @@ const UseStateFC = () => {
             <p>這樣就可以正常運作了</p>
             <p className="hightlight">Count: {count2}</p>
             <button onClick={increment_multiple}>Increment Multiple</button>
+
+            <p>還有值得一提的是，如果我們明明說只要state變更，就會導致頁面需要重新render，但是如果我們的state是一個物件或陣列，而我們只是改變了物件或陣列裡面的某個值，這時候頁面是不會重新render的。</p>
+            <p>白話的說，修改物件裡面的內容，不會導致state改變，所以頁面不會重新render。必須修改整個物件才會導致state改變，所以頁面才會重新render。</p>
+            <p>舉個例子</p>
+            <CommonPrism>
+                {`const [obj, setObj] = useState({ value: 0 });
+
+const handleClickError = () => {
+    obj.value += 1; // 直接修改 obj 物件的內容
+    setObj(obj); // 透過同一個物件更新 state
+}`}
+            </CommonPrism>
+            <p>這時候我們只是改變了obj裡面的value值，但是因為obj是一個物件，所以state沒有變更，所以頁面不會重新render。</p>
+            <p>這時候我們可以這樣寫</p>
+            <CommonPrism>
+                {`const handleClick = () => {
+  const newObj = { value: obj.value + 1 }; // 創建一個新物件
+  setObj(newObj);
+}`}
+            </CommonPrism>
+            <p>這樣就可以正常運作了。下面是實作的例子，左邊是用錯誤的方法，右邊是正確。<br />
+                當你點選左邊的時候物件的內容是有變更的，但是頁面不會重新render，而右邊的則是正常的，有變化且會重新render。</p>
+            <p>{obj.value}</p>
+            <button onClick={handleClickError} >Increment Obj Error</button>
+            <button onClick={handleClick}>Increment Obj</button>
+
+            <p className="hightlight">另外當你在一個function執行多個setState時，React會把這些setState合併成一次更新，這樣可以提高效能。所以只會render一次。</p>
+
         </div >
     );
 };
