@@ -19,6 +19,7 @@ import CallbackAndMemoPage from './pages/CallbackAndMemoPage';
 import { Footer } from './pages/component/Footer';
 import UseTransitionPage from './pages/UseTransitionPage';
 import { Navbar } from './pages/component/Navbar';
+import UseDeferredValuePage from './pages/UseDeferredValuePage';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
           <Route path="/CallbackAndMemoPage" element={<CallbackAndMemoPage />} />
 
           <Route path="/useTransition" element={<UseTransitionPage />} />
+          <Route path="/useDeferredValue" element={<UseDeferredValuePage />} />
 
           <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>

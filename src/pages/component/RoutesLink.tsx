@@ -14,6 +14,7 @@ const RoutesLink = () => {
             <Link to="/useCallback" className='hightlight'>useCallback</Link>
             <Link to="/CallbackAndMemoPage" className='hightlight'>useMemo和useCallback的差別</Link>
             <Link to="/useTransition" className='hightlight'>useTransition</Link>
+            <Link to="/useDeferredValue" className='hightlight'>useDeferredValue</Link>
 
             <a className='hightlight' href="https://courses.webdevsimplified.com/view/courses/react-hooks-simplified">很棒的教學網站</a>
         </>
