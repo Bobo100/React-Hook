@@ -22,7 +22,7 @@ const UseTransitionFC = () => {
     }
 
     useEffect(() => {
-        console.log("every render ", "inputValue ", inputValue, "list ", list);
+        console.log("every render ", "inputValue ", inputValue, "list ", list[0]);
     })
 
     const handleOnChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -169,7 +169,7 @@ const UseTransitionFC = () => {
             <p>下面有一段程式碼，你可以猜猜看</p>
             <CommonPrism>
                 {`useEffect(() => {
-    console.log("every render ", "inputValue ", inputValue, "list ", list);
+    console.log("every render ", "inputValue ", inputValue, "list ", list[0]);
 })
 
 const handleOnChange2 = (e: React.ChangeEvent<HTMLInputElement>) => {
