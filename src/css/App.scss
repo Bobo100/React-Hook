@@ -129,12 +129,24 @@ input {
 
   display: inline-block;
   margin: 10px;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: #ffa601;
+    color: #282c34;
+  }
 }
 
 a {
   color: #ffa601;
   text-decoration: none;
   padding: 10px;
+}
+
+a.active {
+  background-color: #ffa601;
+  color: #282c34;
 }
 
 .margin {
