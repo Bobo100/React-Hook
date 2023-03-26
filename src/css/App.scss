@@ -21,9 +21,8 @@ $navbar-height: 150px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  // margin: 20px auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+
+  margin: 20px;
 
   max-width: 1440px;
 
@@ -40,6 +39,16 @@ $navbar-height: 150px;
   transition: top 0.3s;
 
   padding-left: 20px;
+
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+
+  a {
+    width: -moz-fit-content;
+    width: fit-content;
+    white-space: nowrap;
+  }
 }
 
 .navbar--hidden {
