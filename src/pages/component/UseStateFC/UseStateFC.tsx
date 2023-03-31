@@ -58,6 +58,15 @@ const UseStateFC = () => {
             <CommonPrism>
                 {`<button onClick={increment}>Increment Version 2</button>`}
             </CommonPrism>
+
+            <p className="hightlight">請注意：我是帶入function而不是increment()讓他立即執行喔！！</p>
+            <CommonPrism>
+                {` // 錯誤的寫法
+<button onClick={increment()}>Increment Version 2</button>`}
+            </CommonPrism>
+            <p>{`如果您的 onClick 屬性是一個函數呼叫，例如 onClick={increment()}，那麼它將在渲染期間立即執行 increment 函數並返回其結果。這不是您想要的，因為您需要在按鈕被單擊時才調用函數。
+                但是，當您使用 onClick={increment} 時，將函數本身傳遞給 onClick，而非函數的返回值。這意味著當用戶單擊按鈕時，才會調用該函數，並且不是在渲染期間立即執行`}</p>
+
             <p>increment function則是這麼寫</p>
             <CommonPrism>
                 {`function increment() { setCount(prevState => prevState + 1); }`}
