@@ -1,7 +1,6 @@
 // UseState 範例
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CommonPrism } from '../../Common';
-
 
 const UseStateFC = () => {
     //////////////////////////////////////////

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { CallbackAndMemo } from "./component/CallbackAndMemo"
+import { CallbackAndMemoFC } from "./component/CallbackAndMemoFC/CallbackAndMemoFC"
 
 const CallbackAndMemoPage = () => {
     useEffect(() => {
@@ -25,7 +25,7 @@ const CallbackAndMemoPage = () => {
 
             <p className='hightlight'>如果要靈活的使用useMemo和useCallback，就要努力了解！！</p>
             <p>下面提供一個範例，我會解釋一下差別</p>
-            <CallbackAndMemo />
+            <CallbackAndMemoFC />
 
             <p >
                 {/* ???  */}

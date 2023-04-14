@@ -1,4 +1,4 @@
-import { CommonPrism } from "../Common"
+import { CommonPrism } from "../../Common";
 
 export const ContextAndReducerCode = () => {
     return (

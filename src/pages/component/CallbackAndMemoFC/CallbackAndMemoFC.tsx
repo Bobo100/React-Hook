@@ -1,12 +1,12 @@
 // UseCallback 範例
 import React, { useState, useCallback, useMemo } from 'react'
-import { CommonPrism } from '../Common';
+import { CommonPrism } from '../../Common';
 
-import ClearButton from './ClearButton';
-import { List } from './UseCallbackFC/List';
-import { ListForMemo } from './UseCallbackFC/ListForMemo';
+import ClearButton from '../ClearButton';
+import { List } from '../UseCallbackFC/List';
+import { ListForMemo } from '../UseCallbackFC/ListForMemo';
 
-export function CallbackAndMemo() {
+export function CallbackAndMemoFC() {
     const [number, setNumber] = useState(1)
 
     function inputOnChange(e: React.ChangeEvent<HTMLInputElement>) {

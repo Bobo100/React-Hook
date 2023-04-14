@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import ContextAndReducer from "./component/ContextAndReducer"
-import { ContextAndReducerCode } from "./component/ContextAndReducerCode"
+import ContextAndReducer from "./component/ContextAndReducerFC/ContextAndReducer"
+import { ContextAndReducerCode } from "./component/ContextAndReducerFC/ContextAndReducerCode"
 
 const ContextAndReducerPage = () => {
     useEffect(() => {
